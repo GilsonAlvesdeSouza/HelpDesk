@@ -1,7 +1,5 @@
 package com.gilsonalves.helpdesk.entity;
 
-
-
 import java.util.Date;
 import java.util.List;
 
@@ -17,16 +15,29 @@ public class Ticket {
 
 	@Id
 	private String id;
-	
+
 	@DBRef(lazy = true)
 	private User user;
-	
+
 	private Date data;
-	
+
 	private String titulo;
-	
+
 	private Integer numero;
-	
+
+	private StatusEnum status;
+
+	private PrioridadeEnum prioridade;
+
+	@DBRef(lazy = true)
+	private User assignedUser;
+
+	private String descricao;
+
+	private String imagem;
+
+	private List<AlteracoesStatus> alteracoes;
+
 	public String getId() {
 		return id;
 	}
@@ -115,16 +126,4 @@ public class Ticket {
 		this.alteracoes = alteracoes;
 	}
 
-	private StatusEnum status;
-	
-	private PrioridadeEnum prioridade;
-	
-	@DBRef(lazy = true)
-	private User  assignedUser;
-	
-	private String descricao;
-	
-	private String imagem;
-	
-	private List<AlteracoesStatus> alteracoes;
 }
