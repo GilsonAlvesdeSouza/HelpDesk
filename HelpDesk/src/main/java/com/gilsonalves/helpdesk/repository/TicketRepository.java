@@ -1,8 +1,7 @@
 package com.gilsonalves.helpdesk.repository;
 
-import java.awt.print.Pageable;
-
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.gilsonalves.helpdesk.entity.Ticket;
@@ -18,16 +17,16 @@ public interface TicketRepository extends MongoRepository<Ticket, String> {
 	 */
 	Page<Ticket> findByUserIdOrderByDataDesc(Pageable pages, String userId);
 
-	Page<Ticket> findByTituloIgnoreCaseContainingAndStatusAndPriodadeOrderByDataDesc(
+	Page<Ticket> findByTituloIgnoreCaseContainingAndStatusAndPrioridadeOrderByDataDesc(
 			String Titulo, String status, String prioridade, Pageable pages);
 
-	Page<Ticket> findByTituloIgnoreCaseContainingAndStatusAndPriodadeAndUserIdOrderByDataDesc(
+	Page<Ticket> findByTituloIgnoreCaseContainingAndStatusAndPrioridadeAndUserIdOrderByDataDesc(
 			String Titulo, String status, String prioridade, Pageable pages);
 
-	Page<Ticket> findByTituloIgnoreCaseContainingAndStatusAndPriodadeAndassignedUserIdOrderByDataDesc(
+	Page<Ticket> findByTituloIgnoreCaseContainingAndStatusAndPrioridadeAndAssignedUserIdOrderByDataDesc(
 			String Titulo, String status, String prioridade, Pageable pages);
 	
-	Page<Ticket> findByNumber(Integer numero, Pageable pages);
+	Page<Ticket> findByNumero(Integer numero, Pageable pages);
 }
 
 
